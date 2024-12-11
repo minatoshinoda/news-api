@@ -1,0 +1,55 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "products" %}
+
+{% block content %}
+
+<h1>Products</h1>
+
+    <p class="lead">This is the products page</p>
+
+
+    <ul>
+    {% for product in products %}
+        <li>{{ product.name }} </li>
+    {% endfor %}
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+    {% if products|length > 0 %}
+
+        <!--div class="container"-->
+        <div class="row">
+            {% for product in products %}
+                <div class="col">
+                    <div class="card" style="width: 18rem; margin-bottom: 20px;">
+                        <img class="card-img-top" src="{{ product.url }}" alt="an image of '{{ product.name }}'">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+
+                            <!--button class="btn btn-primary">Order now!</button-->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!--/div-->
+
+    {% else %}
+
+        <p>Oops, no products found.</p>
+
+    {% endif %}
+
+
+{% endblock %}
