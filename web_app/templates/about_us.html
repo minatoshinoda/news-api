@@ -1,0 +1,26 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "about_us" %}
+
+{% block content %}
+<h1>About Us</h1>
+<p class="lead">This is the about us page</p>
+
+<div class="row">
+    {% if about %}
+        {% for member in about %}
+            <div class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ member.url }}" alt="Image of {{ member.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ member.name }}</h5>
+                        <p class="card-text">{{ member.info }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No team members found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

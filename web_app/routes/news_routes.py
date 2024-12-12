@@ -90,14 +90,14 @@ def news_dashboard():
             request_data = dict(request.args)
             print("URL PARAMS:", request_data)
 
-        # Get the topic from the request, default to "NFLX" if not provided
-        topic = request_data.get("topic", "NFLX")
+        # Get the topic from the request, default to "Sports" if not provided
+        topic = request_data.get("topic", "Sports")
 
         # Fetch news data for the given topic
         documented_data = fetch_news_csv(topic=topic)
 
         # Flash success message and render the dashboard template
-        flash("Fetched Real-Time Market Data", "success")
+        flash("Fetched Most Recent News Articles", "success")
         return render_template(
             "news_dashboard.html",
             topic=topic,
@@ -106,5 +106,5 @@ def news_dashboard():
 
     except Exception as err:
         print("Error:", err)  # Log the error for debugging
-        flash("Market Data Error. Please check your topic and try again!", "danger")
+        flash("News Articles Fetch Error. Please check your topic and try again!", "danger")
         return redirect("/news/form")
