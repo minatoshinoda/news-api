@@ -1,0 +1,44 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "news_dashboard" %}
+
+{% block content %}
+<h2>News Dashboard ({{ topic }})</h2>
+
+<script type="text/javascript">
+    console.log("NEWS DASHBOARD...");
+
+    // Use data passed from the Flask route
+    var topic = "{{ topic }}";
+    var newsData = JSON.parse('{{ data | tojson }}'); // Parse the JSON data passed from Flask
+
+    console.log(newsData);
+
+    // Example: Dynamically generate HTML for articles
+    document.addEventListener("DOMContentLoaded", function () {
+        var articlesContainer = document.getElementById("articles");
+
+        if (newsData.length > 0) {
+            newsData.forEach(function (article) {
+                var articleHtml = `
+                    <div class="article">
+                        <h3>${article.title}</h3>
+                        <p><strong>Author:</strong> ${article.author || "Unknown"}</p>
+                        <p><strong>Published At:</strong> ${article.publishedAt}</p>
+                        <p>${article.description}</p>
+                        <a href="${article.url}" target="_blank">Read more</a>
+                        <hr>
+                    </div>
+                `;
+                articlesContainer.innerHTML += articleHtml;
+            });
+        } else {
+            articlesContainer.innerHTML = "<p>No articles found for this topic.</p>";
+        }
+    });
+</script>
+
+<div id="articles" class="articles-container">
+    <!-- Articles will be dynamically inserted here -->
+</div>
+
+{% endblock %}

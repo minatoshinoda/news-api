@@ -1,0 +1,25 @@
+
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "news_form" %}
+
+{% block content %}
+
+    <h2>News Form</h2>
+
+    <p>Request some news articles...</p>
+
+    <form action="/news/dashboard" method="POST">
+
+        <label>News Categories:</label>
+        <select name="topic">
+            <option value="sports">Sports</option>
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="health">Health</option>
+        </select>
+        <br>
+
+        <button class="btn btn-primary">Submit</button>
+    </form>
+
+{% endblock %}
