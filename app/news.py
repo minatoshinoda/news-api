@@ -3,7 +3,7 @@ import requests
 import csv
 from pprint import pprint
 ##from IPython.display import Image, display
-from pandas import read_csv
+import pandas as df
 from datetime import datetime
 #
 def to_datetime(x):
@@ -56,7 +56,7 @@ def fetch_news_csv(topic):
     response = requests.get(request_url)
     if response.status_code != 200:
         print("Error fetching data from API")
-        return []
+        return df.DataFrame()
     
     data = response.json()
     articles = data.get("articles", [])
@@ -66,24 +66,34 @@ def fetch_news_csv(topic):
         key=lambda x: datetime.strptime(x["publishedAt"], "%Y-%m-%dT%H:%M:%SZ"), 
         reverse=True
     )
+
+    documented_data = df.DataFrame([{
+        "AUTHOR": d.get("author", "Unknown"),
+        "TITLE": d.get("title", "No title"),
+        "DESCRIPTION": d.get("description", "No description"),
+        "URL": d.get("url", "No URL"),
+        "TIME": datetime.strptime(d["publishedAt"], "%Y-%m-%dT%H:%M:%SZ")
+    } for d in sorted_articles[:5]])  # Top 5 articles
     
-    documented_data = sorted_articles[:5]  # Get the top 5 most recent articles
-    result = []
-    
-    for d in documented_data:
-        print("------------------------------------")
-        print("AUTHOR: ", d.get("author", "Unknown"))
-        print("TITLE: ", d.get("title", "No title"))
-        print("DESCRIPTION: ", d.get("description", "No description"))
-        print("URL: ", d.get("url", "No URL"))
-        print("TIME: ", datetime.strptime(d["publishedAt"], "%Y-%m-%dT%H:%M:%SZ"))
-        
-        result.append({
-            "author": d.get("author"),
-            "title": d.get("title"),
-            "description": d.get("description"),
-            "url": d.get("url"),
-            "publishedAt": d.get("publishedAt")
-        })
-    
-    return result
+    return documented_data
+
+ #   documented_data = sorted_articles[:5]  # Get the top 5 most recent articles
+ #   result = []
+ #   
+ #   for d in documented_data:
+ #       print("------------------------------------")
+ #       print("AUTHOR: ", d.get("author", "Unknown"))
+ #       print("TITLE: ", d.get("title", "No title"))
+ #       print("DESCRIPTION: ", d.get("description", "No description"))
+ #       print("URL: ", d.get("url", "No URL"))
+ #       print("TIME: ", datetime.strptime(d["publishedAt"], "%Y-%m-%dT%H:%M:%SZ"))
+ #       
+ #       result.append({
+ #           "author": d.get("author"),
+ #           "title": d.get("title"),
+ #           "description": d.get("description"),
+ #           "url": d.get("url"),
+ #           "publishedAt": d.get("publishedAt")
+ #       })
+ #   
+ #   return result
