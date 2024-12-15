@@ -1,15 +1,10 @@
-# this is the "web_app/routes/home_routes.py" file...
-
 from flask import Blueprint, request, render_template
 
 about_us_routes = Blueprint("about_us_routes", __name__)
 
-@about_us_routes.route("/about/us")
+@about_us_routes.route("/about/us") #routes to the about us html file
 def about_list():
-    print("ABOUT US...")
-
-    # this is some data from the internet maybe
-    about = [
+    about = [ #each developer's introduction
         {
             'name': 'Abhi Meka',
             'info': 'Class of 2026, Finance & OPAN',

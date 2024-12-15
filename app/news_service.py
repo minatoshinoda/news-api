@@ -1,10 +1,8 @@
-# this is the app/alpha_service.py file...
-
 import os
 
 from dotenv import load_dotenv
 
 
-load_dotenv() # looks in the ".env" file for env vars
+load_dotenv() # looks in the ".env" file for env variables
 
-API_KEY = os.getenv("NEWSAPI_KEY", default="demo")
+API_KEY = os.getenv("NEWSAPI_KEY") #, default="demo"
