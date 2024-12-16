@@ -2,6 +2,7 @@
 {% set active_page = "news_dashboard" %}
 
 {% block content %}
+<!-- HEADER OF ARTICLES RESULTS PAGE -->
 <h1>Your Articles for {{ topic }}</h1>
 <br>
 <h2><i>Top Five Most Recently Published Content</i></h2>
@@ -15,10 +16,10 @@
 
     console.log(newsData);
 
-    // Example: Dynamically generate HTML for articles
+    // Dynamically generate HTML for articles
     document.addEventListener("DOMContentLoaded", function () {
         var articlesContainer = document.getElementById("articles");
-
+        //Formatting information that is displayed to the user 
         if (newsData.length > 0) {
             newsData.forEach(function (article) {
                 var articleHtml = `
@@ -28,7 +29,6 @@
                         <p><strong>Published At:</strong> ${article.publishedAt}</p>
                         <p><strong>Description:</strong> ${article.description}</p>
                        <p> <strong>URL:</strong> <a href="${article.url}" target="_blank">Read more</a> </p>
-                      <div>  <img src= <a href="${article.urltoImage}" target="_blank"> </div>
                         <hr>
                     </div>
                 `;
@@ -41,7 +41,6 @@
 </script>
 
 <div id="articles" class="articles-container">
-    <!-- Articles will be dynamically inserted here -->
 </div>
 
 {% endblock %}

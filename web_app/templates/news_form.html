@@ -3,13 +3,13 @@
 {% set active_page = "news_form" %}
 
 {% block content %}
-
+    <!-- USER INSTRUCTIONS FOR ARTICLE GENERATION -->
     <h1>Article Generator</h1>
     <br>
     <h3>Choose a topic from the drop-down menu to start reading!</h3>
     <br>
     <form action="/news/dashboard" method="POST">
-
+    <!-- USER SELECTION DROPDOWN BAR -->
         <label>News Categories:</label>
         <select name="topic">
             <option value="sports">Sports</option>
@@ -27,7 +27,7 @@
         <br>
     </form>
     <br>
-    <!-- SEE: https://getbootstrap.com/docs/5.2/components/carousel/ -->
+    <!-- CAROUSEL OF IMAGES ON ARTICLE GENERATION PAGE -->
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">

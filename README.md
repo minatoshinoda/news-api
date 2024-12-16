@@ -26,14 +26,17 @@ pip install -r requirements.txt
 Create a ".env" file and add contents like the following:
 
 ```sh
-# this is the ".env" file:
 NEWSAPI_KEY="..."
 ```
+## Usage
 
-
+Run article generator 
+```sh
+python -m app.news
+```
 ## Web App 
 
-Run the web app (then view in the browser at http://localhost:5000/):
+Run the web app (then view in the browser at http://127.0.0.1:5000):
 
 ```sh
 FLASK_APP=web_app flask run
