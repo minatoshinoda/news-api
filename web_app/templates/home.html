@@ -5,71 +5,33 @@
 
     <h1>Welcome to "What's The Buzz?"</h1>
 
-    <p>This site was created to boost student engagement in the news by efficiently providing 
-        convenient, trustworthy, and priority news content. All data is pulled
+    <p>This site was created to boost student engagement with current news by efficiently providing them a source
+        of convenient, trustworthy, and priority news content. All the data is pulled
         using the News API, which constantly gathers the most recent articles across news sites
-        and blogs across the US
+        and blogs across the US. 
+    </p>
+
+    <p> To generate articles, please refer to the three bar menu on the top right corner and select the
+        article generator. Once there, you will be prompted to select a topic of interest from a drop-down menu.
+        This will generate the five most recent articles or blogs posted under that topic, with a short description
+        of their content below, for those looking to absorb information quickly.
     </p>
 
     <!-- SEE: https://getbootstrap.com/docs/5.2/components/carousel/ -->
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://image.shutterstock.com/image-photo/business-development-success-growing-growth-600w-748617433.jpg" class="d-block w-100" alt="...">
+                <img src="https://www.shutterstock.com/image-photo/daily-newspaper-wooden-background-600nw-384014077.jpg" class="d-block w-100" alt="...">
+            </div>
+            
+            <div class="carousel-item">
+                <img src="https://www.shutterstock.com/image-photo/portrait-reporter-woman-holding-microphone-600nw-1832571394.jpg" class="d-block w-100" alt="...">
             </div>
 
             <div class="carousel-item">
-                <img src="https://image.shutterstock.com/image-photo/double-exposure-hands-making-notes-600w-1577042437.jpg" class="d-block w-100" alt="...">
-            </div>
-
-            <div class="carousel-item">
-                <img src="https://image.shutterstock.com/image-photo/business-documents-on-office-table-600w-414153883.jpg" class="d-block w-100" alt="...">
+                <img src="https://www.shutterstock.com/image-vector/breaking-news-live-banner-on-600nw-655085215.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
     </div>
 
 {% endblock %}
-
-
-
-    <!--
-
-        RESPONSIVE GRID OF CARDS
-
-        SEE:
-
-            https://getbootstrap.com/docs/5.0/layout/grid/
-
-            https://getbootstrap.com/docs/5.0/components/card/
-
-            https://getbootstrap.com/docs/5.0/components/card/#grid-cards
-
-      -->
-
-      <div class="row row-cols-3">
-
-        <div class="card col" style="width: 18rem; margin:20px;">
-            <img src="https://picsum.photos/300/200" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-        <div class="card col" style="width: 18rem; margin:20px;">
-            <img src="https://picsum.photos/300/200" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-        <div class="card col" style="width: 18rem; margin:20px;">
-            <img src="https://picsum.photos/300/200" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-    </div>

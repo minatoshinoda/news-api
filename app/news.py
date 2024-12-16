@@ -50,7 +50,8 @@ def fetch_news_csv(topic, return_type): #fetches the news article data across va
             "title": title,
             "description": description,
             "url": d.get("url"),
-            "time": d.get("time")
+            "publishedAt": d.get("publishedAt"),
+            "urltoImage": d.get("urltoImage")
         })
     #print(result)
     if return_type =="json":

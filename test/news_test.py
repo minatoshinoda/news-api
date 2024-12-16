@@ -6,7 +6,7 @@ def test_news_data_fetching():
 
     response = fetch_news_csv("sports", "DataFrame")
     assert isinstance(response, DataFrame)
-    assert set(response.columns) == {"author", "title", "description", "url", "time"}
+    assert set(response.columns) == {"author", "title", "description", "url", "publishedAt"}
     assert len(response) > 0
 
  #   earliest = df.iloc[-1]

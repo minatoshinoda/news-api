@@ -2,10 +2,12 @@
 {% set active_page = "news_dashboard" %}
 
 {% block content %}
-<h2>News Dashboard ({{ topic }})</h2>
+<h2>Your Five Articles for {{ topic }}</h2>
+
+<p2>Top Five Most Recently Published Content</p2>
 
 <script type="text/javascript">
-    console.log("NEWS DASHBOARD...");
+    console.log("Top Five Most Recently Published Content...");
 
     // Use data passed from the Flask route
     var topic = "{{ topic }}";
@@ -24,8 +26,9 @@
                         <h3>${article.title}</h3>
                         <p><strong>Author:</strong> ${article.author || "Unknown"}</p>
                         <p><strong>Published At:</strong> ${article.publishedAt}</p>
-                        <p>${article.description}</p>
-                        <a href="${article.url}" target="_blank">Read more</a>
+                        <p><strong>Description:</strong> ${article.description}</p>
+                       <p> <strong>URL:</strong> <a href="${article.url}" target="_blank">Read more</a> </p>
+                      <div>  <img src= <a href="${article.urltoImage}" target="_blank"> </div>
                         <hr>
                     </div>
                 `;

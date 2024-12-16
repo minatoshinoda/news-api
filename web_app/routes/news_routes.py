@@ -4,7 +4,7 @@ import string
 
 news_routes = Blueprint("news_routes", __name__)
 
-@news_routes.route("/news/form") #routes to the news form html file
+@news_routes.route("/article/generator") #routes to the news form html file
 def news_form():
     return render_template("news_form.html")
 
@@ -20,7 +20,7 @@ def news_dashboard():
 
         documented_data = fetch_news_csv(topic=topic, return_type="json") #Fetch news article data for the chosen topic
         
-        flash("Fetched Most Recent News Articles", "success") # Flash success message implemented, routes to the news dashboard html
+        flash("Fetched Five Most Recent News Articles!", "success") # Flash success message implemented, routes to the news dashboard html
         return render_template(
             "news_dashboard.html",
             topic=topic,
