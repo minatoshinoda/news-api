@@ -4,9 +4,9 @@ import string
 
 news_routes = Blueprint("news_routes", __name__)
 
-@news_routes.route("/article/generator") #routes to the news form html file
+@news_routes.route("/article/generator") 
 def news_form():
-    return render_template("news_form.html")
+    return render_template("news_form.html") #routes to the news form html file
 
 @news_routes.route("/news/dashboard", methods=["GET", "POST"]) #routes to the news dashboard file
 def news_dashboard():
@@ -16,7 +16,7 @@ def news_dashboard():
         else:
             request_data = dict(request.args)
 
-        topic = request_data.get("topic", "Sports") #Retrieve the topic, use sports as default if not given
+        topic = request_data.get("topic", "Sports").capitalize() #Retrieve the topic, use sports as default if not given
 
         documented_data = fetch_news_csv(topic=topic, return_type="json") #Fetch news article data for the chosen topic
         
