@@ -1,17 +1,17 @@
-# my-first-app
+# news-api
 
 ## Setup
 
 Create a virtual environment:
 
 ```sh
-conda create -n reports-env-2024 python=3.10
+conda create -n news-api python=3.10
 ```
 
 Activate the environment:
 
 ```sh
-conda activate reports-env-2024
+conda activate news-api
 ```
 
 Install packages:
@@ -22,7 +22,6 @@ pip install -r requirements.txt
 
 [Obtain an API Key](https://newsapi.org/account)
 
-TODO include instructions here for signing up for email sending platform 
 
 Create a ".env" file and add contents like the following:
 
