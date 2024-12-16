@@ -1,0 +1,46 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "news_dashboard" %}
+
+{% block content %}
+<!-- HEADER OF ARTICLES RESULTS PAGE -->
+<h1>Your Articles for {{ topic }}</h1>
+<br>
+<h2><i>Top Five Most Recently Published Content</i></h2>
+<br>
+<script type="text/javascript">
+    console.log("Top Five Most Recently Published Content...");
+
+    // Use data passed from the Flask route
+    var topic = "{{ topic }}";
+    var newsData = JSON.parse('{{ data | tojson }}'); // Parse the JSON data passed from Flask
+
+    console.log(newsData);
+
+    // Dynamically generate HTML for articles
+    document.addEventListener("DOMContentLoaded", function () {
+        var articlesContainer = document.getElementById("articles");
+        //Formatting information that is displayed to the user 
+        if (newsData.length > 0) {
+            newsData.forEach(function (article) {
+                var articleHtml = `
+                    <div class="article">
+                        <h3>${article.title}</h3>
+                        <p><strong>Author:</strong> ${article.author || "Unknown"}</p>
+                        <p><strong>Published At:</strong> ${article.publishedAt}</p>
+                        <p><strong>Description:</strong> ${article.description}</p>
+                       <p> <strong>URL:</strong> <a href="${article.url}" target="_blank">Read more</a> </p>
+                        <hr>
+                    </div>
+                `;
+                articlesContainer.innerHTML += articleHtml;
+            });
+        } else {
+            articlesContainer.innerHTML = "<p>No articles found for this topic.</p>";
+        }
+    });
+</script>
+
+<div id="articles" class="articles-container">
+</div>
+
+{% endblock %}
