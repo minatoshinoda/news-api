@@ -4,7 +4,7 @@ from app.news import fetch_news_csv
 
 def test_news_data_fetching():
 
-    response = fetch_news_csv("sports")
+    response = fetch_news_csv("sports", "DataFrame")
     assert isinstance(response, DataFrame)
     assert set(response.columns) == {"author", "title", "description", "url", "time"}
     assert len(response) > 0
