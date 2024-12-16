@@ -8,7 +8,3 @@ def test_news_data_fetching():
     assert isinstance(response, DataFrame)
     assert set(response.columns) == {"author", "title", "description", "url", "publishedAt"}
     assert len(response) > 0
-
- #   earliest = df.iloc[-1]
- #   assert earliest["timestamp"] == '2018-04-03'
-  #  assert earliest["adjusted_close"] == 149.01
