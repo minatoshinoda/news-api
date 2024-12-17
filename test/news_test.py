@@ -3,6 +3,7 @@ from app.news_service import API_KEY
 from app.news import fetch_news_csv
 import os
 
+
 from dotenv import load_dotenv
 load_dotenv()
 
