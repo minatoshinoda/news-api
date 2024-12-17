@@ -19,15 +19,15 @@ def fetch_news_csv(topic, return_type, apikey=None): #fetches the news article d
         apikey = API_KEY
     request_url = f"https://www.newsapi.org/v2/everything?q={topic}&apiKey={apikey}"
     response = requests.get(request_url)
-    print(return_type)
-    print(request_url)
-    print(response.status_code)
+    #print(return_type)
+    #print(request_url)
+    #print(response.status_code)
     if response.status_code != 200:
         print("Error fetching data from API")
         return pd.DataFrame()
     
     data = response.json()
-    print(data)
+    #print(data)
     articles = data.get("articles", [])
     
     
@@ -36,6 +36,7 @@ def fetch_news_csv(topic, return_type, apikey=None): #fetches the news article d
 
     documented_data = sorted_articles[0:5]  # Get the top 5 most recent articles
     result = []
+    print(documented_data)
 
     for d in documented_data:  
 
@@ -48,7 +49,7 @@ def fetch_news_csv(topic, return_type, apikey=None): #fetches the news article d
         if d.get("description") is None:
             description = d.get("description")     
         else:
-            description =  d.get("description").replace('"', '\\"')
+            description =  d.get("description").replace('"', '\\"').replace('\n', '<br>')
 
         result.append({
             "author": d.get("author"),
