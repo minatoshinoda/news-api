@@ -17,9 +17,10 @@ def to_datetime(x): #formats time consistently to help with sorting articles by 
 def fetch_news_csv(topic, return_type, apikey=None): #fetches the news article data across various topics
     if API_KEY is not None:
         apikey = API_KEY
-    request_url = f"https://newsapi.org/v2/everything?q={topic}&apiKey={apikey}"
+    request_url = f"http://newsapi.org/v2/everything?q={topic}&apiKey={apikey}"
     response = requests.get(request_url)
     print(return_type)
+    print(request_url)
     if response.status_code != 200:
         print("Error fetching data from API")
         return pd.DataFrame()
