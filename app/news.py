@@ -22,9 +22,9 @@ def fetch_news_csv(topic, return_type, apikey=None): #fetches the news article d
     print(return_type)
     print(request_url)
     print(response.status_code)
-    #if response.status_code != 200:
-    #    print("Error fetching data from API")
-    #    return pd.DataFrame()
+    if response.status_code != 200:
+        print("Error fetching data from API")
+        return pd.DataFrame()
     
     data = response.json()
     print(data)

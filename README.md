@@ -48,3 +48,7 @@ Run tests:
 ```sh
 pytest
 ```
+
+## Deployed Site
+
+https://news-api-c9g1.onrender.com
