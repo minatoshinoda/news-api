@@ -1,0 +1,30 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "about_us" %}
+
+{% block content %}
+<h1>About Our Developers:</h1>
+<br>
+<!-- Introductions about who we are -->
+<p class="lead">Our developers are currently juniors attending Georgetown University's McDonough School of Business. 
+    This project was created as a final deliverable for their 'Management Business Application Development in Python' course</p>
+
+<!-- Design for the cards describing each member -->
+<div class="row">
+    {% if about %}
+        {% for member in about %}
+            <div class="col-md-4">
+                <div class="card mb-4 bg-primary" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ member.url }}" alt="Image of {{ member.name }}">
+                    <div class="card-body text-light">
+                        <h5 class="card-title">{{ member.name }}</h5>
+                        <p class="card-text">{{ member.info }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No team members found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,17 +1,17 @@
-# my-first-app
+# news-api
 
 ## Setup
 
-Create a virtual environment (first time only):
+Create a virtual environment:
 
 ```sh
-conda create -n reports-env-2024 python=3.10
+conda create -n news-api-final python=3.10
 ```
 
-Activate the environment (whenever you come back to this project):
+Activate the environment:
 
 ```sh
-conda activate reports-env-2024
+conda activate news-api-final
 ```
 
 Install packages:
@@ -20,45 +20,27 @@ Install packages:
 pip install -r requirements.txt
 ```
 
-[Obtain an API Key](https://www.alphavantage.co/support/#api-key) from AlphaVantage.
+[Obtain an API Key](https://newsapi.org/account)
 
-TODO include instructions here for signing up for email sending platform 
 
-Create a ".env" file and add contents like the following (using your own AlphaVantage API Key):
+Create a ".env" file and add contents like the following:
 
 ```sh
-# this is the ".env" file:
-ALPHAVANTAGE_API_KEY="..."
+NEWSAPI_KEY="..."
 ```
-
 ## Usage
 
-Run the example script:
-
+Run article generator 
 ```sh
-python app/my_script.py
+python -m app.news
 ```
+## Web App 
 
-Run the unemployment report:
-
-```sh
-#ALPHAVANTAGE_API_KEY="..." python app/unemployment.py
-
-python -m app.unemployment
-```
-Run the stocks report:
+Run the web app (then view in the browser at http://127.0.0.1:5000):
 
 ```sh
-python -m app.stocks
-```
-### Web App 
-
-Run the web app (then view in the browser at http://localhost:5000/):
-
-```sh
-# Mac OS:
 FLASK_APP=web_app flask run
-
+```
 ## Testing
 
 Run tests:
