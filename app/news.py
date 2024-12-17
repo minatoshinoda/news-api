@@ -15,7 +15,7 @@ def to_datetime(x): #formats time consistently to help with sorting articles by 
 
 
 def fetch_news_csv(topic, return_type): #fetches the news article data across various topics
-    request_url = f"https://newsapi.org/v2/everything?q={topic}&apiKey=1bb2735a929a4e9886a1944523c3b065"
+    request_url = f"https://newsapi.org/v2/everything?q={topic}&apiKey={API_KEY}"
     response = requests.get(request_url)
     print(response)
     if response.status_code != 200:
