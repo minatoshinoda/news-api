@@ -1,5 +1,7 @@
 python-dotenv 
 
+pytest-dotenv
+
 requests
 
 pandas
