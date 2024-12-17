@@ -1,9 +1,9 @@
 from pandas import DataFrame
-
+from app.news_service import API_KEY
 from app.news import fetch_news_csv
 
 def test_news_data_fetching():
-
+    assert len(API_KEY)>5
     response = fetch_news_csv("sports", "DataFrame")
     assert isinstance(response, DataFrame)
     #assert set(response.columns) == {"author", "title", "description", "url", "publishedAt"}
