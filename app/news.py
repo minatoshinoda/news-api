@@ -19,7 +19,7 @@ def fetch_news_csv(topic, return_type, apikey=None): #fetches the news article d
         apikey = API_KEY
     request_url = f"https://newsapi.org/v2/everything?q={topic}&apiKey={apikey}"
     response = requests.get(request_url)
-    print(response)
+    print(return_type)
     if response.status_code != 200:
         print("Error fetching data from API")
         return pd.DataFrame()
@@ -59,5 +59,4 @@ def fetch_news_csv(topic, return_type, apikey=None): #fetches the news article d
         return result   
     else: 
         result_df = pd.DataFrame(result)
-   # result_df = result_df.to_json()
         return result_df
