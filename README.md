@@ -5,13 +5,13 @@
 Create a virtual environment:
 
 ```sh
-conda create -n news-api-final python=3.10
+conda create -n news-api python=3.10
 ```
 
 Activate the environment:
 
 ```sh
-conda activate news-api-final
+conda activate news-api
 ```
 
 Install packages:
